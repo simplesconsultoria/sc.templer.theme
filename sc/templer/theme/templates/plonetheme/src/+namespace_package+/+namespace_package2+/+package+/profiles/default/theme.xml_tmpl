@@ -1,0 +1,4 @@
+<theme>
+   <name>${namespace_package}.${namespace_package2}.${package}</name>
+   <enabled>false</enabled>
+</theme>

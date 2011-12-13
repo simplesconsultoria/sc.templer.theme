@@ -1,0 +1,19 @@
+<object name="portal_skins" default_skin="${namespace_package2}_${package}">
+    
+ <object name="${namespace_package2}_${package}_images"
+    meta_type="Filesystem Directory View"
+    directory="${namespace_package}.${namespace_package2}.${package}:skins/images"/>
+ <object name="${namespace_package2}_${package}_templates"
+    meta_type="Filesystem Directory View"
+    directory="${namespace_package}.${namespace_package2}.${package}:skins/templates"/>
+ <object name="${namespace_package2}_${package}_styles"
+    meta_type="Filesystem Directory View"
+    directory="${namespace_package}.${namespace_package2}.${package}:skins/styles"/>
+
+ <skin-path name="${namespace_package2}_${package}" based-on="Sunburst Theme">
+       <layer name="${namespace_package2}_${package}_images" insert-before="*"/>
+       <layer name="${namespace_package2}_${package}_templates" insert-before="*"/>
+       <layer name="${namespace_package2}_${package}_styles" insert-before="*"/>
+ </skin-path>
+
+</object>
