@@ -18,7 +18,7 @@ class Diazo(BaseTemplate):
     help = """This template allows you to create a Diazo theme based on
               beyondskins.responsive"""
 
-    category = "Simples Consultoria"
+    category = "Simples Consultoria - Themes"
 
     ndots = 1
     use_cheetah = True

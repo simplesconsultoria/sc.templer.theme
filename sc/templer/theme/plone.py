@@ -12,6 +12,8 @@ class PloneTheme(PlonePackage):
     summary = "A theme package following the Simples Consultoria standards"
     help = "A package that will configure a Plone theme installation"
 
+    category = "Simples Consultoria - Themes"
+
     _template_dir = "templates/plonetheme"
     vars = copy.deepcopy(PlonePackage.vars)
 
