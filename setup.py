@@ -40,8 +40,8 @@ setup(
     ],
     entry_points="""
     [paste.paster_create_template]
-    diazo_theme = sc.templer.theme.diazo:Diazo
-    plone_theme = sc.templer.theme.plone:PloneTheme
+    theme_diazo = sc.templer.theme.diazo:Diazo
+    theme_plone = sc.templer.theme.plone:PloneTheme
 
     """,
     )
