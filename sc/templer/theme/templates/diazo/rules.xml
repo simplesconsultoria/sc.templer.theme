@@ -7,29 +7,32 @@
     <theme href="index.html">
         
     <rules css:if-content="#visual-portal-wrapper">
-        <!--Plone Theming-->        
-        <!--Head-->
-        <copy css:content="html" css:theme="html" attributes="lang dir" />
-        <before css:content="head meta" css:theme="head meta" />
-        <drop css:content="head link[rel='shortcut icon']" />
-        <drop css:content="head link[rel='apple-touch-icon']" />    
-        <before css:content="head link" css:theme="head link" />    
-        <replace css:content="head title" css:theme="head title" />    
-    	<before css:content="head script" css:theme="head script" />
-        <copy css:content="head base" css:theme="head base" />    
     
+       <copy css:content="html" css:theme="html" attributes="lang dir" />
+       <replace theme="/html/head/base" content="/html/head/base" />
+       <before content='/html/head' theme='/html/head' />
+       <drop content="/html/head/meta[@name='viewport']" />
+       <drop content="/html/head/link[@rel='shortcut icon']" />
+       <drop content="/html/head/link[@rel='apple-touch-icon']" />
+        
+       <append css:theme="head">
+        <link type="text/css" rel="stylesheet" href="/static/style.css" />
+        <script type="text/javascript" src="/static/function.js" />
+	    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
+	    <link rel="apple-touch-icon" href="/static/touch_icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0" />
+       </append>
+
         <!--Content-->
         <merge attributes="class" css:content="body" css:theme="body" />
         <copy attributes="id dir" css:content="body" css:theme="body" />
     	<copy attributes="role" css:content="content" css:theme="contentspace" />
-        <replace css:content="#portal-columns" css:theme="#content" />
+        <replace content='//*[@id="portal-columns"]' theme='//*[@id="content"]' />
     
         <!--Viewlets-->
-        <replace css:content="#portal-personaltools" css:theme="#user" />    
+        <replace content='//*[@id="portal-personaltools"]' theme='//*[@id="user"]' />  
         <copy attributes="href title" css:content="#portal-logo" css:theme="#logo a" />
-    
-        <copy attributes="href title" css:content="#portal-logo" css:theme="#logo a" />
-    
+        
         <replace css:content="#portal-header p.hiddenStructure" css:theme="#accessibility" />
     
     
