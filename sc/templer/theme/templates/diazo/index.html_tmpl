@@ -8,18 +8,15 @@ http://www.simplesconsultoria.com.br
 
 <head>
 
-	<!-- content -->
-	
 	<title>Page Title</title>
-	
-	<!-- icons -->
-	<link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
-	<link rel="apple-touch-icon" href="static/touch_icon.png">
-	
-	<!-- styles -->
-	<link type="text/css" rel="stylesheet" href="static/style.css" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <script language="JavaScript" SRC="static/function.js"></script> 
+ 
+        <link type="text/css" rel="stylesheet" href="/++theme++s17.theme/static/style.css" />
+        <script type="text/javascript" src="/++theme++s17.theme/static/function.js" />
+	    <link rel="shortcut icon" type="image/x-icon" href="/++theme++s17.theme/static/favicon.ico" />
+	    <link rel="apple-touch-icon" href="/++theme++s17.theme/static/touch_icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0" />
+</head>
+
 <body >
 	<!-- Accessibility -->
 	<div id="accessibility"> </div>
