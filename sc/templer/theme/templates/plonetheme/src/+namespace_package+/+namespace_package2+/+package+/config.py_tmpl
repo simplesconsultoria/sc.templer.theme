@@ -3,3 +3,10 @@
 
 __author__ = """Simples Consultoria <products@simplesconsultoria.com.br>"""
 __docformat__ = 'plaintext'
+
+PROJECTNAME = '${namespace_package}.${namespace_package2}.${package}'
+
+PRODUCTS=[
+    # (name, locked, hidden, install, profile, runProfile)
+    ('plone.app.theming', 0, 0, 1, 'plone.app.theming', 1),
+    ]

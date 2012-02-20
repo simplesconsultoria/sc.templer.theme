@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
+
 import unittest2 as unittest
 
-from zope.site.hooks import setSite
-
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import login
 from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
 
+from plone.browserlayer.utils import registered_layers
+
+from ${namespace_package}.${namespace_package2}.${package}.config import PROJECTNAME
 from ${namespace_package}.${namespace_package2}.${package}.testing import INTEGRATION_TESTING
 
-PROJECTNAME = '${namespace_package}.${namespace_package2}.${package}'
+DEPENDENCIES = (
+    'plone.app.theming',
+    )
 
 
 class BaseTestCase(unittest.TestCase):
@@ -24,7 +28,6 @@ class BaseTestCase(unittest.TestCase):
 
     def setUp(self):
         portal = self.layer['portal']
-        setSite(portal)
         self.portal = portal
         self.qi = getattr(self.portal, 'portal_quickinstaller')
         self.pp = getattr(self.portal, 'portal_properties')
@@ -37,7 +40,7 @@ class TestInstall(BaseTestCase):
     """ensure product is properly installed"""
 
     def test_installed(self):
-        self.failUnless(self.qi.isProductInstalled(PROJECTNAME),
+        self.assertTrue(self.qi.isProductInstalled(PROJECTNAME),
                         '%s not installed' % PROJECTNAME)
 
 
@@ -49,7 +52,8 @@ class TestUninstall(BaseTestCase):
         self.qi.uninstallProducts(products=[PROJECTNAME])
 
     def test_uninstalled(self):
-        self.failIf(self.qi.isProductInstalled(PROJECTNAME))
+        self.assertFalse(self.qi.isProductInstalled(PROJECTNAME),
+                         '%s not uninstalled' % PROJECTNAME)
 
 
 def test_suite():
