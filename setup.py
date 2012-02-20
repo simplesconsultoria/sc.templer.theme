@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+
 import os
 from setuptools import setup, find_packages
 
@@ -8,21 +9,17 @@ setup(
     name='sc.templer.theme',
     version=version,
     description="Base templer structures for Simples Consultoria.",
-    long_description=open("README.rst").read() + "\n" +
-                     open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=open("README.rst").read() + "\n" +
+                       open(os.path.join("docs", "INSTALL.txt")).read() + "\n" +
+                       open(os.path.join("docs", "CREDITS.txt")).read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.txt")).read(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
-        "Framework :: Zope2",
-        "Framework :: Zope3",
-        "Framework :: Plone",
-        "Framework :: Plone",
-        "Framework :: Buildout",
+        "Framework :: Plone :: 4.1",
         "Intended Audience :: Developers",
-        "Programming Language :: Python",
-        'Programming Language :: Python :: 2.5',
-        'Programming Language :: Python :: 2.6',
-        "Topic :: Internet :: WWW/HTTP",
-        "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 2.6",
         "Topic :: Software Development :: Code Generators",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
@@ -42,6 +39,5 @@ setup(
     [paste.paster_create_template]
     theme_diazo = sc.templer.theme.diazo:Diazo
     theme_plone = sc.templer.theme.plone:PloneTheme
-
     """,
     )
