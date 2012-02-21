@@ -8,9 +8,9 @@
     <includeDependencies package="." />
 
     <include package="five.grok" />
-    
+
     <include package=".browser" />
-    
+
     <grok:grok package="." />
 
     #if str($has_profile) == 'True'
