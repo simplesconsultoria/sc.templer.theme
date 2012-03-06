@@ -16,6 +16,14 @@ DEPENDENCIES = (
     'plone.app.theming',
     )
 
+JS = [
+    # XXX: Add JavaScript list here
+    ]
+
+CSS = [
+    # XXX: Add Style Sheet list here
+    ]
+
 
 class BaseTestCase(unittest.TestCase):
     """base test case to be used by other tests"""
@@ -48,6 +56,16 @@ class TestInstall(BaseTestCase):
         self.assertTrue('IThemeSpecific' in layers,
                         'browser layer not installed')
 
+    def test_javascript_registry(self):
+        portal_javascripts = self.portal.portal_javascripts
+        for js in JS:
+            self.assertTrue(js in portal_javascripts.getResourceIds())
+
+    def test_css_registry(self):
+        portal_css = self.portal.portal_css
+        for css in CSS:
+            self.assertTrue(css in portal_css.getResourceIds())
+
 
 class TestUninstall(BaseTestCase):
     """ensure product is properly uninstalled"""
@@ -64,6 +82,16 @@ class TestUninstall(BaseTestCase):
         layers = [l.getName() for l in registered_layers()]
         self.assertFalse('IThemeSpecific' in layers,
                          'browser layer not removed')
+
+    def test_javascript_registry_removed(self):
+        portal_javascripts = self.portal.portal_javascripts
+        for js in JS:
+            self.assertFalse(js in portal_javascripts.getResourceIds())
+
+    def test_css_registry_removed(self):
+        portal_css = self.portal.portal_css
+        for css in CSS:
+            self.assertFalse(css in portal_css.getResourceIds())
 
 
 def test_suite():
