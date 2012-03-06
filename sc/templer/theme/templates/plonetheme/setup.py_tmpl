@@ -40,7 +40,7 @@ setup(name='$namespace_package.$namespace_package2.$package',
       zip_safe=False,
       install_requires=[
         'setuptools',
-        'plone.app.theming',
+        'plone.app.theming>=1.0b9',
         # XXX: Add extra requirements here
         ],
       extras_require={
