@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <layers>
  <layer name="${namespace_package}.${namespace_package2}.${package}"
-        interface="${namespace_package}.${namespace_package2}.${package}.interfaces.IThemeSpecific"
+        interface="${namespace_package}.${namespace_package2}.${package}.browser.interfaces.IThemeSpecific"
         remove="true" />
 </layers>

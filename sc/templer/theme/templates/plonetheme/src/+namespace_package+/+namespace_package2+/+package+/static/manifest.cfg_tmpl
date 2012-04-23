@@ -1,0 +1,8 @@
+[theme]
+title = ${namespace_package}.${namespace_package2}.${package} 
+description = ${description or None}
+author = ${repr($author) or $empty}
+author_email = ${repr($author_email) or $empty} 
+
+[theme:parameters]
+ajax_load = python: 'ajax_load' in request.form

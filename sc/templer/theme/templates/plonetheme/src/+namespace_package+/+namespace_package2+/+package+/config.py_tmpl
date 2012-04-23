@@ -1,12 +1,43 @@
 # -*- coding: utf-8 -*-
 # File: config.py
+# -*- coding: utf-8 -*-
+import logging
+
+from collective.grok import gs
+
+from sc.policy.helper import deps
+from sc.policy.helper import setup
+
+from ${namespace_package}.${namespace_package2}.${package} import MessageFactory as _
+
 
 __author__ = """Simples Consultoria <products@simplesconsultoria.com.br>"""
 __docformat__ = 'plaintext'
 
+DEPENDENCIES = ''
 PROJECTNAME = '${namespace_package}.${namespace_package2}.${package}'
+PROFILE_ID = '${namespace_package}.${namespace_package2}.${package}:default'
 
-PRODUCTS=[
-    # (name, locked, hidden, install, profile, runProfile)
-    ('plone.app.theming', 0, 0, 1, 'plone.app.theming', 1),
-    ]
+# Default Profile
+gs.profile(name=u'default',
+           title=_(u'Install ${namespace_package}.${namespace_package2}.${package}'),
+           description=_(u'${namespace_package}.${namespace_package2}.${package}'),
+           directory='profiles/default')
+
+# Uninstall Profile
+gs.profile(name=u'uninstall',
+           title=_(u'Uninstall ${namespace_package}.${namespace_package2}.${package}'),
+           description=_(u'${namespace_package}.${namespace_package2}.${package}'),
+           directory='profiles/uninstall')
+
+@gs.importstep(name=u'${namespace_package}.${namespace_package2}.${package}',
+               title='Run upgrades',
+               description='Import step used to upgrade the portal.',
+               dependencies=['plone_content'])
+def run_upgrades(context):
+    ''' Run Upgrade steps
+    '''
+    if context.readDataFile('${namespace_package}.${namespace_package2}.${package}-default.txt') is None:
+        return
+    logger = logging.getLogger(PROJECTNAME)
+    setup.run_upgrades_for_profile(PROFILE_ID, context, logger)

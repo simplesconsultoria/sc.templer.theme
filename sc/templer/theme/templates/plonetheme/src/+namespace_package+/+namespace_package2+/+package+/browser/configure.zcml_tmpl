@@ -8,7 +8,7 @@
  <!-- Theme Layer -->
 
   <interface
-      interface="..interfaces.IThemeSpecific"
+      interface=".interfaces.IThemeSpecific"
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="${namespace_package2}_${package}"
   />
@@ -20,7 +20,7 @@
      for="*"
      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
      class=".viewlets.FooterViewlet"
-     layer="..interfaces.IThemeSpecific"
+     layer=".interfaces.IThemeSpecific"
      permission="zope.Public"
    />
 
@@ -29,7 +29,7 @@
      for="*"
      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
      class=".viewlets.LogoViewlet"
-     layer="..interfaces.IThemeSpecific"
+     layer=".interfaces.IThemeSpecific"
      permission="zope.Public"
    />
 
