@@ -1,0 +1,67 @@
+# -*- coding:utf-8 -*-
+import os
+
+from ConfigParser import ConfigParser
+
+from setuptools import setup, find_packages
+
+version = '$version'
+
+requirements_file = open(os.path.join("src",
+                                      "$namespace_package",
+                                      "$namespace_package2",
+                                      "$package",
+                                      "dependencies.txt"))
+
+def requirements():
+    requirements = []
+    defaults = dict(version='')
+    config = ConfigParser(defaults)
+    config.readfp(requirements_file)
+    for section in config.sections():
+        version = config.get(section, 'version')
+        if version and version[0].isdigit():
+            version = '==' + version
+        requirements.append('%s%s' % (section, version))
+    return requirements
+
+setup(name='$namespace_package.$namespace_package2.$package',
+      version=version,
+      description="${description or None}",
+      long_description=open("README.rst").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      classifiers=[
+        "Framework :: Plone",
+        "Framework :: Plone :: $plone_version",
+        "Framework :: Zope2",
+        "Framework :: Zope3",
+        "Programming Language :: Python",
+        "Topic :: Internet :: WWW/HTTP",
+        "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        ],
+      keywords=${repr($keywords) or $empty},
+      author=${repr($author) or $empty},
+      author_email=${repr($author_email) or $empty},
+      url=${repr($url) or $empty},
+      license=${repr($license_name) or $empty},
+      packages=find_packages('src'),
+      package_dir={'': 'src'},
+      namespace_packages=['$namespace_package',
+                         '$namespace_package.$namespace_package2'],
+      include_package_data=True,
+      zip_safe=False,
+      install_requires=[
+          'setuptools',
+      ] + requirements(),
+      extras_require={
+        'test': ['plone.app.testing'],
+        },
+      entry_points="""
+      # -*- Entry points: -*-
+
+      [z3c.autoinclude.plugin]
+      target = plone
+      """,
+      )
+

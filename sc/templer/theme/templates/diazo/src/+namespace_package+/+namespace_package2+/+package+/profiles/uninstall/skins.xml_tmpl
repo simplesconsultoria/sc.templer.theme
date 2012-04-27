@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<object name="portal_skins" default_skin="Sunburst Theme">
+ <object name="${namespace_package2}_${package}_images" remove="True"/>
+ <object name="${namespace_package2}_${package}_templates" remove="True"/>
+ <object name="${namespace_package2}_${package}_styles" remove="True"/>
+
+ <skin-path name="${namespace_package2}_${package}" remove="True" />
+</object>

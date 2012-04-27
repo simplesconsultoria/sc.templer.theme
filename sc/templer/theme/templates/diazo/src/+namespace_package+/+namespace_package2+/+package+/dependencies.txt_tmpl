@@ -1,0 +1,13 @@
+[sc.policy.helper]
+
+#[collective.grok]
+#Included by sc.policy.helper
+
+[plone.app.theming]
+version = >=1.0b9
+
+[plone.app.themingplugins]
+version= >=1.0b1
+
+[five.grok]
+version= >=1.2
