@@ -1,35 +1,27 @@
 # -*- coding:utf-8 -*-
-import os
-
-from ConfigParser import ConfigParser
 
 from setuptools import setup, find_packages
+import os
 
-version = '$version'
-
-requirements_file = open(os.path.join("src",
-                                      "$namespace_package",
-                                      "$namespace_package2",
-                                      "$package",
-                                      "dependencies.txt"))
-
-def requirements():
-    requirements = []
-    defaults = dict(version='')
-    config = ConfigParser(defaults)
-    config.readfp(requirements_file)
-    for section in config.sections():
-        version = config.get(section, 'version')
-        if version and version[0].isdigit():
-            version = '==' + version
-        requirements.append('%s%s' % (section, version))
-    return requirements
-
+base = os.path.join(os.path.abspath(os.path.normpath(os.path.dirname(__file__))),
+                    "src",
+                    "$namespace_package",
+                    "$namespace_package2",
+                    "$package")
+requires = ['collective.grok',
+            'plone.app.themingplugins',
+            'plone.app.theming >= 1.0b9', 
+            'plone.app.themingplugins >= 1.0b1', 
+            'five.grok >= 1.2']
+version = open(os.path.join(base, "version.txt")).read().strip()
+ 
 setup(name='$namespace_package.$namespace_package2.$package',
       version=version,
       description="${description or None}",
-      long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=open(os.path.join(base, "README.rst")).read() + "\n" + 
+                       open(os.path.join(base, "docs/HISTORY.txt")).read(),
+      # Get more strings from
+      # http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
         "Framework :: Plone :: $plone_version",
@@ -45,7 +37,7 @@ setup(name='$namespace_package.$namespace_package2.$package',
       author_email=${repr($author_email) or $empty},
       url=${repr($url) or $empty},
       license=${repr($license_name) or $empty},
-      packages=find_packages('src'),
+      packages=find_packages('src', exclude=['ez_setup'])
       package_dir={'': 'src'},
       namespace_packages=['$namespace_package',
                          '$namespace_package.$namespace_package2'],
@@ -53,7 +45,7 @@ setup(name='$namespace_package.$namespace_package2.$package',
       zip_safe=False,
       install_requires=[
           'setuptools',
-      ] + requirements(),
+      ] + requires,
       extras_require={
         'test': ['plone.app.testing'],
         },
@@ -64,4 +56,3 @@ setup(name='$namespace_package.$namespace_package2.$package',
       target = plone
       """,
       )
-
