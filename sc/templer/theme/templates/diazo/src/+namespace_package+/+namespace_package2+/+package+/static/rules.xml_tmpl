@@ -16,10 +16,12 @@
         <append  content="/html/head/link"   theme="/html/head" />
 
         <append css:theme="head">
-            <link type="text/css" rel="stylesheet" href="++theme++${namespace_package}.${namespace_package2}.${package}/stylesheets/${namespace_package}.${namespace_package2}.${package}.css" />
+            <link type="text/css" rel="stylesheet"
+                href="++theme++${namespace_package}.${namespace_package2}.${package}/stylesheets/${namespace_package}_${namespace_package2}_${package}.css" />
             <link rel="shortcut icon" type="image/x-icon" href="++theme++${namespace_package}.${namespace_package2}.${package}/images/favicon.ico" />
             <link rel="apple-touch-icon" href="++theme++${namespace_package}.${namespace_package2}.${package}/images/touch_icon.png" />
-            <script language="JavaScript" SRC="++theme++++theme++${namespace_package}.${namespace_package2}.${package}/javascripts/${namespace_package}.${namespace_package2}.${package}.js"></script>
+            <script language="JavaScript"
+                SRC="++theme++++theme++${namespace_package}.${namespace_package2}.${package}/javascripts/${namespace_package}_${namespace_package2}_${package}.js"></script>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
         </append>
 
