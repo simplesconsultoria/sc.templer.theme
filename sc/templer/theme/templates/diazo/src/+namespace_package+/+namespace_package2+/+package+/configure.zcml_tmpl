@@ -12,11 +12,11 @@
     <includeDependencies package="." />
 
     <include package="five.grok" />
-
     <include package=".browser" />
 
     <grok:grok package="." />
 
+    <cmf:registerDirectory name="skins" directory="skins" recursive="True" />
     <plone:static directory="static" type="theme" />
 
 </configure>
