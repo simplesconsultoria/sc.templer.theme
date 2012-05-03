@@ -1,0 +1,20 @@
+[theme]
+title = ${namespace_package}.${namespace_package2}.${package} 
+description = ${description or None}
+author = ${repr($author) or $empty}
+author_email = ${repr($author_email) or $empty} 
+doctype = <!DOCTYPE html>
+
+[theme:parameters]
+ajax_load = python: 'ajax_load' in request.form
+
+[theme:browserlayer]
+layer1 = ${namespace_package}.${namespace_package2}.${package}.interfaces.IThemeSpecific
+
+[theme:overrides]
+directory = ../overrides
+layer = ${namespace_package}.${namespace_package2}.${package}.interfaces.IThemeSpecific 
+
+[theme:views]
+directory = ../views
+layer = ${namespace_package}.${namespace_package2}.${package}.interfaces.IThemeSpecific

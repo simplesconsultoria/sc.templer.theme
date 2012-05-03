@@ -8,8 +8,9 @@ Simples Consultoria - www.simplesconsultoria.com.br
 /************** Responsive Diazo Magic ************************/
 
 /* Background images */
-body {background: #ffffff url(bg.jpg) top repeat-x;}
-#header {background: transparent url(header.png) top center no-repeat;}
+body {background: #ffffff url(++theme++${namespace_package}.${namespace_package2}.${package}/images/bg.jpg) top repeat-x;}
+#header {background: transparent
+url(++theme++${namespace_package}.${namespace_package2}.${package}/images/header.png) top center no-repeat;}
 
 /* Colors and fonts */
 body {color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 62.5%;}
@@ -114,14 +115,14 @@ div.overlay-iframe, div.overlay-ajax {left:11%!Important; width:75%;}
 		text-indent: -900000px;
 		padding: 1em;
 		margin-top: 4%;
-		background:transparent url(search-ico.png) no-repeat center center;
+		background:transparent url(++theme++${namespace_package}.${namespace_package2}.${package}/images/search-ico.png) no-repeat center center;
 	}
 	
 	#nav #seletor {
 		display:block;
 		padding:1em;
 		width:80%;
-		background:url("sections-ico.png") no-repeat 97% 60%;
+		background:url("++theme++${namespace_package}.${namespace_package2}.${package}/images/sections-ico.png") no-repeat 97% 60%;
 	 }
 	
 	#nav li {display: none;}

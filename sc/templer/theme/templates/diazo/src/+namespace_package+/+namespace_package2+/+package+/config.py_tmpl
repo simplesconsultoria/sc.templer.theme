@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+# File: config.py
+# -*- coding: utf-8 -*-
+import logging
+
+from collective.grok import gs
+from Products.CMFCore.utils import getToolByName
+from Products.GenericSetup.interfaces import EXTENSION
+from Products.GenericSetup.upgrade import listUpgradeStep
+
+from ${namespace_package}.${namespace_package2}.${package} import MessageFactory as _
+
+
+__author__ = """Simples Consultoria <products@simplesconsultoria.com.br>"""
+__docformat__ = 'plaintext'
+
+DEPENDENCIES = ''
+PROJECTNAME = '${namespace_package}.${namespace_package2}.${package}'
+PROFILE_ID = '${namespace_package}.${namespace_package2}.${package}:default'
+
+# Default Profile
+gs.profile(name=u'default',
+           title=_(u'Install ${namespace_package}.${namespace_package2}.${package}'),
+           description=_(u'${namespace_package}.${namespace_package2}.${package}'),
+           directory='profiles/default',
+           provides=EXTENSION)
+
+# Uninstall Profile
+gs.profile(name=u'uninstall',
+           title=_(u'Uninstall ${namespace_package}.${namespace_package2}.${package}'),
+           description=_(u'${namespace_package}.${namespace_package2}.${package}'),
+           directory='profiles/uninstall',
+           provides=EXTENSION)
+
+@gs.importstep(name=u'${namespace_package}.${namespace_package2}.${package}',
+               title='Run upgrades',
+               description='Import step used to upgrade the portal.',
+               dependencies=['plone_content'])
+def run_upgrades(context):
+    ''' Run Upgrade steps
+    '''
+    if context.readDataFile('${namespace_package}.${namespace_package2}.${package}-default.txt') is None:
+        return
+    logger = logging.getLogger(PROJECTNAME)
+    site = context.getSite()
+    setup_tool = getToolByName(site, 'portal_setup')
+    version = setup_tool.getLastVersionForProfile(PROFILE_ID)
+    upgradeSteps = listUpgradeSteps(setup_tool, PROFILE_ID, version)
+    sorted(upgradeSteps, key=lambda step: step['sortkey'])
+
+    for step in upgradeSteps:
+        oStep = step.get('step')       
+        if oStep is not None:
+            oStep.doStep(setup_tool)       
+            msg = "Ran upgrade step %s for profile %s" % (oStep.title,
+                                                          _PROFILE_ID)                   
+            setup_tool.setLastVersionForProfile(PROFILE_ID, oStep.dest)
+            logger.info(msg)
