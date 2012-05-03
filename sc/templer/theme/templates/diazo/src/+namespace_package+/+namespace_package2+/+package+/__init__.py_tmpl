@@ -6,5 +6,6 @@ MessageFactory = BaseMessageFactory('${namespace_package}.${namespace_package2}.
 
 i18n.registerTranslations(directory='locales')
 
+
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""

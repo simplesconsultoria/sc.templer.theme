@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# File: config.py
-# -*- coding: utf-8 -*-
+
 import logging
 
 from collective.grok import gs
@@ -32,6 +31,7 @@ gs.profile(name=u'uninstall',
            directory='profiles/uninstall',
            provides=EXTENSION)
 
+
 @gs.importstep(name=u'${namespace_package}.${namespace_package2}.${package}',
                title='Run upgrades',
                description='Import step used to upgrade the portal.',
@@ -49,10 +49,10 @@ def run_upgrades(context):
     sorted(upgradeSteps, key=lambda step: step['sortkey'])
 
     for step in upgradeSteps:
-        oStep = step.get('step')       
+        oStep = step.get('step')
         if oStep is not None:
-            oStep.doStep(setup_tool)       
+            oStep.doStep(setup_tool)
             msg = "Ran upgrade step %s for profile %s" % (oStep.title,
-                                                          _PROFILE_ID)                   
+                                                          _PROFILE_ID)
             setup_tool.setLastVersionForProfile(PROFILE_ID, oStep.dest)
             logger.info(msg)
