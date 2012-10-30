@@ -12,10 +12,3 @@ portal_url = python: portal_state.portal_url()
 [theme:browserlayer]
 layer1 = ${namespace_package}.${namespace_package2}.${package}.interfaces.IThemeSpecific
 
-[theme:overrides]
-directory = ../overrides
-layer = ${namespace_package}.${namespace_package2}.${package}.interfaces.IThemeSpecific 
-
-[theme:views]
-directory = ../views
-layer = ${namespace_package}.${namespace_package2}.${package}.interfaces.IThemeSpecific
