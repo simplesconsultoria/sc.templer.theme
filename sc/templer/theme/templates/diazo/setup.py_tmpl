@@ -37,10 +37,9 @@ setup(name='$namespace_package.$namespace_package2.$package',
       zip_safe=False,
       install_requires=[
         'setuptools',
-        'collective.grok',
-        'five.grok >= 1.2',
+        'five.grok',
         'plone.app.theming',
-        'plone.app.themingplugins >= 1.0b1',
+        'plone.app.themingplugins',
         ],
       extras_require={
         'test': ['plone.app.testing'],

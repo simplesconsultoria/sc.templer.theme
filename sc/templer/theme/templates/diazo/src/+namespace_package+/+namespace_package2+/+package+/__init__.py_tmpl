@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 from zope.i18nmessageid import MessageFactory as BaseMessageFactory
-from collective.grok import i18n
 
 MessageFactory = BaseMessageFactory('${namespace_package}.${namespace_package2}.${package}')
-
-i18n.registerTranslations(directory='locales')
-
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""

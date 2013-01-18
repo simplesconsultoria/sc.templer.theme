@@ -22,6 +22,7 @@
 
  <!-- stylesheet
     id="++theme++${namespace_package}.${namespace_package2}.${package}/src/${namespace_package}_${namespace_package2}_${package}.css"
+    remove="True"
     --/>
 
 </object>

@@ -11,12 +11,33 @@
 
     <includeDependencies package="." />
 
-    <include package="five.grok" />
-    <include package=".browser" />
+    <i18n:registerTranslations directory="locales" />
 
     <grok:grok package="." />
 
-    <cmf:registerDirectory name="skins" directory="skins" recursive="True" />
-    <plone:static directory="static" type="theme" />
+    <cmf:registerDirectory 
+        name="skins"
+        directory="skins"
+        recursive="True" />
+
+    <plone:static
+        directory="static"
+        type="theme" 
+        name="${namespace_package}.${namespace_package2}.${package}"/>
+
+    <genericsetup:registerProfile
+        name="default"
+         title="${namespace_package}.${namespace_package2}.${package} install"
+         directory="profiles/default"
+         description="Installs the ${namespace_package}.${namespace_package2}.${package} package"
+         provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+  <genericsetup:registerProfile
+         name="uninstall"
+         title="${namespace_package}.${namespace_package2}.${package} uninstall"
+         directory="profiles/uninstall"
+         description="Uninstall profile for the ${namespace_package}.${namespace_package2}.${package} package."
+         provides="Products.GenericSetup.interfaces.EXTENSION" />
+
 
 </configure>

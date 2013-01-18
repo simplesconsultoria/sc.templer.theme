@@ -1,22 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Simples Consultoria
-http://www.simplesconsultoria.com.br
-
--->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" dir="ltr">
+    <head>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>${description or None}</title>
 
-<head>
+        <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="src/touch_icon.png">
+        <link type="text/css" rel="stylesheet" href="src/++theme++${namespace_package}.${namespace_package2}.${package}/src/${namespace_package}_${namespace_package2}_${package}.css" />
 
-    <title>Page Title</title>
- 
-</head>
+    </head>
 
 <body >
-    <!-- Accessibility -->
     <div id="accessibility"> </div>
     
-    <!-- User -->
     <div id="user">
         <ul>
             <li><a href="#" title="Login">Login</a></li>
@@ -25,7 +21,6 @@ http://www.simplesconsultoria.com.br
 
     <div id="wrapper">
 
-    <!-- Header -->
         <div id="header" role="banner">
         
         
@@ -33,17 +28,16 @@ http://www.simplesconsultoria.com.br
                 <a href="#" title="#"><img src="++theme++${namespace_package}.${namespace_package2}.${package}/images/logo.png" alt="Portal Title" /></a>
             </div>
             
-    <!-- Search -->
             <div id="search" role="search">
                 <form>search</form>
             </div>
             
             <div class="clear"> </div>
             
-    <!-- Main Menu -->
             <div id="searchbt"><a>search</a></div>
+
             <div id="nav" role="navigation">
-            <span id="seletor" onclick="void(0)">Sections</span>
+                <span id="seletor" onclick="void(0)">Sections</span>
                 <ul>
                     <li><a href="#" title="Link name">Section 1</a></li>
                     <li><a href="#" title="Link name">Section 2</a></li>
@@ -52,24 +46,21 @@ http://www.simplesconsultoria.com.br
             </div>
         </div>
 
-    <!-- Columns -->    
         <div id="main" role="main">
-        
             <div id="content"> 
-        
                 Columns
             </div>
             <div class="clear"> </div>
+        </div>
 
-        </div>
-    <!-- Footer --> 
-        <div id="footer" role="contentinfo"><div>
-            <p id="siteactions"></p>
-            <p><span id="footer-info"></span> This Plone Theme brought to you by <a href="http://www.simplesconsultoria.com.br">Simples Consultoria</a>.</p>
-        </div>
+        <div id="footer" role="contentinfo">
+            <div>
+                <p id="siteactions"></p>
+                <p><span id="footer-info"></span> This Plone Theme brought to you by <a href="http://www.simplesconsultoria.com.br">Simples Consultoria</a>.</p>
+            </div>
         </div>
         
     </div>
-<noscript>No script</noscript>
+    <noscript>No script</noscript>
 </body>
 </html>
